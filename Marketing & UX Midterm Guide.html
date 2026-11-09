@@ -1,0 +1,1099 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Marketing & UX Midterm Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky contents rail on the left (drawer on phones), one reading column of collapsible blocks on the right */
+:root{
+  --bg:#f3f6f4; --surface:#ffffff; --sunk:#e8eeeb; --ink:#13201c; --muted:#56655f; --line:#d3ddd8;
+  --accent:#009b74; --accent-ink:#06664d; --accent-soft:#d9f2ea;
+  --exam:#b86e00; --exam-soft:#fbecd2; --trap:#b8433a; --trap-soft:#f8e1de;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1512; --surface:#141f1b; --sunk:#1b2925; --ink:#e4ede9; --muted:#9bada6; --line:#2a3a35;
+  --accent:#34d3a5; --accent-ink:#7fe6c6; --accent-soft:#16352c;
+  --exam:#f0b457; --exam-soft:#3a2a10; --trap:#f08a80; --trap-soft:#3b1d1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1512; --surface:#141f1b; --sunk:#1b2925; --ink:#e4ede9; --muted:#9bada6; --line:#2a3a35;
+  --accent:#34d3a5; --accent-ink:#7fe6c6; --accent-soft:#16352c;
+  --exam:#f0b457; --exam-soft:#3a2a10; --trap:#f08a80; --trap-soft:#3b1d1a; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent-ink)}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;max-width:1180px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding-block:10px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{font-family:var(--display);font-weight:800;font-size:17px;white-space:nowrap}
+.brand span{color:var(--accent)}
+.meter{flex:1;min-width:60px;display:flex;align-items:center;gap:10px}
+.meter-track{flex:1;height:8px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.meter-fill{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .3s}
+.meter-num{font:500 12px var(--mono);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.btn{font:700 13px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 11px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.only-phone{display:none}
+
+/* contents rail */
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;padding-top:28px}
+.rail h2{font-size:12px;font-family:var(--mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.toc{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;justify-content:space-between;gap:8px;text-decoration:none;color:var(--ink);padding:6px 10px;border-radius:7px;font-weight:700;font-size:14.5px}
+.toc a:hover{background:var(--sunk)}
+.toc a.on{background:var(--accent-soft);color:var(--accent-ink)}
+.toc .cnt{font:500 11.5px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.toc .cnt.done{color:var(--accent-ink)}
+.toc ul{list-style:none;margin:0 0 6px;padding:0 0 0 12px}
+.toc ul a{font-weight:400;font-size:13.5px;padding:3px 10px;color:var(--muted)}
+.rail-tools{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
+
+/* main column */
+main{min-width:0;max-width:780px;padding-top:28px}
+.hero{display:grid;gap:12px;margin-bottom:26px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.hero h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--muted);max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.fact{font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:4px 12px}
+.fact b{color:var(--accent-ink)}
+
+section.top{margin-top:34px;scroll-margin-top:84px}
+.top-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:6px;flex-wrap:wrap}
+.top-head h2{font-size:clamp(24px,3.4vw,31px);font-weight:800;letter-spacing:-.01em}
+.top-head .tag{font:500 12px var(--mono);color:var(--muted)}
+.lead{color:var(--muted);margin:10px 0 8px;max-width:66ch}
+
+details.sub{border-bottom:1px solid var(--line);scroll-margin-top:84px}
+details.sub>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 2px}
+details.sub>summary::-webkit-details-marker{display:none}
+.chev{width:22px;height:22px;flex:none;border-radius:6px;background:var(--sunk);display:grid;place-items:center;transition:transform .2s;color:var(--muted)}
+details[open]>summary .chev{transform:rotate(90deg);background:var(--accent-soft);color:var(--accent-ink)}
+.sum-t{flex:1;min-width:0;font-family:var(--display);font-weight:700;font-size:19px}
+.sum-t small{display:block;font-family:var(--body);font-weight:400;font-size:13.5px;color:var(--muted);margin-top:2px}
+.got{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);flex:none;cursor:pointer;user-select:none}
+.got input{width:18px;height:18px;accent-color:var(--accent);cursor:pointer}
+.got:has(input:checked){color:var(--accent-ink);font-weight:700}
+.body{padding:2px 0 22px 34px;display:grid;gap:14px;min-width:0}
+.body h4{font-size:16.5px;font-weight:700;margin-top:6px}
+.body ul,.body ol{margin:0;padding-left:20px;display:grid;gap:5px}
+.body li::marker{color:var(--accent)}
+.def{background:var(--accent-soft);border-radius:var(--radius);padding:12px 14px}
+.def b:first-child{color:var(--accent-ink)}
+.note{font-size:14px;color:var(--muted)}
+.x{font:500 11px var(--mono);letter-spacing:.04em;text-decoration:none;background:var(--exam-soft);color:var(--exam);border-radius:5px;padding:2px 6px;white-space:nowrap;vertical-align:1px}
+.trap-tag{font:500 11px var(--mono);background:var(--trap-soft);color:var(--trap);border-radius:5px;padding:2px 6px;white-space:nowrap}
+.bonus{font:500 11px var(--mono);background:var(--sunk);color:var(--muted);border-radius:5px;padding:2px 6px;white-space:nowrap}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--display);font-weight:700;font-size:14px;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+
+.grid2{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px;font-size:14.5px}
+.grid2 .ax{font:500 11.5px var(--mono);color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
+.grid2 .cell{border-radius:var(--radius);padding:12px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.grid2 .cell b{display:block;font-family:var(--display);font-size:16px;margin-bottom:3px}
+.grid2 .hot{background:var(--accent-soft);border-color:transparent}
+.grid2 .hot b{color:var(--accent-ink)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;min-width:0}
+.card b{font-family:var(--display);font-size:16px;display:block;margin-bottom:2px}
+.card .ltr{font-family:var(--display);font-weight:800;font-size:28px;color:var(--accent);line-height:1;float:left;margin-right:10px}
+
+.steps{counter-reset:s;list-style:none;padding:0!important;display:grid;gap:6px!important}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
+.steps li::before{content:counter(s);font:500 13px var(--mono);background:var(--sunk);border-radius:6px;height:26px;display:grid;place-items:center}
+.plan-q{display:grid;gap:8px}
+.pq{display:grid;grid-template-columns:minmax(150px,200px) 1fr;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px}
+.pq em{font-style:normal;font-family:var(--display);font-weight:700;color:var(--accent-ink)}
+
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;overflow-x:auto}
+.fig svg{display:block;width:100%;min-width:520px;height:auto}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+figure{margin:0}
+svg text{font-family:var(--body)}
+
+/* exam questions */
+details.q{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);scroll-margin-top:84px}
+details.q+details.q{margin-top:8px}
+details.q>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px}
+details.q>summary::-webkit-details-marker{display:none}
+.qn{font:500 13px var(--mono);color:var(--exam);background:var(--exam-soft);border-radius:6px;min-width:36px;text-align:center;padding:3px 0;flex:none}
+.qt{flex:1;min-width:0;font-weight:700}
+details.q .ans{padding:0 14px 14px 62px;display:grid;gap:8px}
+details.q[open]{border-color:var(--exam)}
+
+.checklist{list-style:none;padding:0!important;display:grid;gap:6px!important}
+.checklist label{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;cursor:pointer}
+.checklist input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.checklist label:has(input:checked){color:var(--muted);text-decoration:line-through}
+.day{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.foot{margin-top:40px;color:var(--muted);font-size:13.5px}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .rail{display:none;position:fixed;inset:0;max-height:none;align-self:stretch;justify-self:stretch;z-index:8;background:var(--bg);
+    padding:calc(env(safe-area-inset-top,0px) + 74px) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .rail.open{display:block}
+  .only-phone{display:inline-block}
+  .brand .long{display:none}
+  .body{padding-left:0}
+  details.q .ans{padding-left:14px}
+  .pq{grid-template-columns:1fr;gap:2px}
+  .sum-t{font-size:17.5px}
+}
+@media (max-width:420px){ .meter-num{display:none} }
+</style>
+
+<div class="bar"><div class="bar-in">
+  <div class="brand">M&amp;UX<span>.</span> <span class="long" style="color:var(--ink)">Midterm</span></div>
+  <div class="meter" title="Topics ticked as known">
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    <div class="meter-num" id="meterNum">0 / 0 known</div>
+  </div>
+  <button class="btn only-phone" id="tocBtn" aria-expanded="false" aria-controls="rail">Contents</button>
+</div></div>
+
+<div class="wrap">
+<nav class="rail" id="rail" aria-label="Contents">
+  <h2>Contents</h2>
+  <ul class="toc" id="toc">
+    <li><a href="#plan">Plan for today <span class="cnt" data-cnt="plan"></span></a></li>
+    <li><a href="#exam">The 22 exam questions <span class="cnt" data-cnt="exam"></span></a></li>
+    <li><a href="#unit1">Unit 1 · Key concepts <span class="cnt" data-cnt="unit1"></span></a>
+      <ul>
+        <li><a href="#u1-what">What marketing is</a></li>
+        <li><a href="#u1-needs">Needs &amp; demand</a></li>
+        <li><a href="#u1-people">Customers &amp; markets</a></li>
+        <li><a href="#u1-brand">Brand metrics</a></li>
+        <li><a href="#u1-value">Value</a></li>
+        <li><a href="#u1-holistic">Holistic marketing &amp; 4As</a></li>
+        <li><a href="#u1-media">Media &amp; channels</a></li>
+        <li><a href="#u1-digital">Digital shift</a></li>
+        <li><a href="#u1-env">Environment &amp; supply chain</a></li>
+        <li><a href="#u1-size">Market size &amp; competition</a></li>
+        <li><a href="#u1-research">Market research</a></li>
+        <li><a href="#u1-plan">Goals, strategy, tactics</a></li>
+        <li><a href="#u1-society">Marketing &amp; society</a></li>
+        <li><a href="#u1-cases">Case studies</a></li>
+      </ul></li>
+    <li><a href="#block2">Block 2 · Market analysis <span class="cnt" data-cnt="block2"></span></a>
+      <ul>
+        <li><a href="#b2-plan">The marketing plan</a></li>
+        <li><a href="#b2-pestel">PESTEL</a></li>
+        <li><a href="#b2-porter">Porter's 5 Forces</a></li>
+        <li><a href="#b2-swot">SWOT &amp; TOWS</a></li>
+        <li><a href="#b2-comp">Competitor analysis</a></li>
+        <li><a href="#b2-bench">Benchmarking</a></li>
+        <li><a href="#b2-share">Share in a changing market</a></li>
+      </ul></li>
+    <li><a href="#block3">Block 3 · Mix &amp; SMART <span class="cnt" data-cnt="block3"></span></a>
+      <ul>
+        <li><a href="#b3-4p">The 4Ps</a></li>
+        <li><a href="#b3-7p">7Ps &amp; 8th P</a></li>
+        <li><a href="#b3-examples">Mix examples</a></li>
+        <li><a href="#b3-smart">SMART goals</a></li>
+        <li><a href="#b3-vp">Value prop, USP, advantage</a></li>
+      </ul></li>
+    <li><a href="#block4">Block 4 · Stakeholders <span class="cnt" data-cnt="block4"></span></a>
+      <ul>
+        <li><a href="#b4-who">Who stakeholders are</a></li>
+        <li><a href="#b4-why">Why we analyse them</a></li>
+        <li><a href="#b4-matrix">Mendelow's matrix</a></li>
+        <li><a href="#b4-tools">Other tools</a></li>
+      </ul></li>
+    <li><a href="#block5">Block 5 · STP, PLC, adoption <span class="cnt" data-cnt="block5"></span></a>
+      <ul>
+        <li><a href="#b5-seg">Segmentation</a></li>
+        <li><a href="#b5-target">Targeting</a></li>
+        <li><a href="#b5-pos">Positioning</a></li>
+        <li><a href="#b5-plc">Product life cycle</a></li>
+        <li><a href="#b5-bcg">BCG matrix</a></li>
+        <li><a href="#b5-adopt">Innovation curve</a></li>
+      </ul></li>
+    <li><a href="#traps">Trap pairs <span class="cnt" data-cnt="traps"></span></a></li>
+    <li><a href="#coverage">What the slides don't cover</a></li>
+  </ul>
+  <div class="rail-tools">
+    <button class="btn" id="openAll">Expand all</button>
+    <button class="btn" id="closeAll">Collapse all</button>
+  </div>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">EU Business School · Marketing &amp; UX · Clara Lasala</div>
+  <h1>Midterm study guide</h1>
+  <p>Everything from Clara's ten files, in the order you should learn it. Open a topic, read it, tick <b>Got it</b> when you could explain it out loud. Your ticks are saved in this browser.</p>
+  <div class="facts">
+    <span class="fact">Exam <b>Tue 10 Nov</b></span>
+    <span class="fact">Midterm = <b>40%</b> of the grade</span>
+    <span class="fact"><b>22</b> questions on the topic list</span>
+  </div>
+</header>
+
+<!-- PLAN -->
+<section class="top" id="plan" data-sec="plan">
+  <div class="top-head"><h2>Plan for today</h2><span class="tag">Mon 9 Nov → exam</span></div>
+  <p class="lead">Block 5 holds 7 of the 22 exam questions, so it gets the most time. If you run short on time, the 22 answers alone cover the exam list.</p>
+  <ul class="checklist">
+    <li class="day">Monday afternoon</li>
+    <li><label><input type="checkbox" data-k="plan-1" data-sec="plan">Read the 22 exam answers (about 25 min). The most important part of this page.</label></li>
+    <li><label><input type="checkbox" data-k="plan-2" data-sec="plan">Block 3: read it, then the Blocks 3–5 flashcards in the chat (about 20 min)</label></li>
+    <li><label><input type="checkbox" data-k="plan-3" data-sec="plan">Block 4: read it (about 15 min)</label></li>
+    <li><label><input type="checkbox" data-k="plan-4" data-sec="plan">Block 5: read it (about 35 min)</label></li>
+    <li class="day">Monday evening</li>
+    <li><label><input type="checkbox" data-k="plan-5" data-sec="plan">Blocks 3–5 trap test in the chat, then send Claude the numbers you missed</label></li>
+    <li><label><input type="checkbox" data-k="plan-6" data-sec="plan">Ask Claude for the final mock exam (all blocks mixed)</label></li>
+    <li class="day">Tuesday morning</li>
+    <li><label><input type="checkbox" data-k="plan-7" data-sec="plan">Re-read only the 22 answers and the trap pairs. Nothing new.</label></li>
+  </ul>
+</section>
+
+<!-- EXAM -->
+<section class="top" id="exam" data-sec="exam">
+  <div class="top-head"><h2>The 22 exam questions</h2><span class="tag">From “Topics exam.pdf”</span></div>
+  <p class="lead">Clara's list, in her order. Each answer is what you should be able to write from memory: definition first, then an example. Tap a question to open the answer; tick it once you can say it without looking.</p>
+
+  <details class="q" id="q1"><summary><span class="qn">Q1</span><span class="qt">What is marketing?</span><label class="got"><input type="checkbox" data-k="q1" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Understanding the customer so well that the product fits them and sells itself (Drucker): selling is not the main part. Kotler: marketing management is “the art and science of choosing target markets and building profitable relationships with them.”</p><p class="note">More in <a href="#u1-what">What marketing is</a>.</p></div></details>
+
+  <details class="q" id="q2"><summary><span class="qn">Q2</span><span class="qt">What is market share?</span><label class="got"><input type="checkbox" data-k="q2" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>A brand's sales as a % of the total market's sales, in value (€) or volume (units), usually from Nielsen sell-out data. Changes are reported in percentage points. Rising share means the brand is beating the market.</p><p class="note">Example: mouthwash went from 23.9% to 27.1% of oral care. <a href="#u1-brand">Brand metrics</a></p></div></details>
+
+  <details class="q" id="q3"><summary><span class="qn">Q3</span><span class="qt">What is brand awareness?</span><label class="got"><input type="checkbox" data-k="q3" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>The number or % of people who know the brand, measured at three levels: top of mind (named first), spontaneous (named unaided) and prompted (recognised when shown). The values people then link to it form the brand image.</p></div></details>
+
+  <details class="q" id="q4"><summary><span class="qn">Q4</span><span class="qt">What is consumer experience?</span><label class="got"><input type="checkbox" data-k="q4" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>How the customer perceives every interaction with the company and its product, website or app (UX), from first contact to after the purchase. UI is only how it looks on screen. Wii, iPad and Prius succeeded through good marketing homework plus an extraordinary UX.</p></div></details>
+
+  <details class="q" id="q5"><summary><span class="qn">Q5</span><span class="qt">What framework do we use to analyse the macro situation?</span><label class="got"><input type="checkbox" data-k="q5" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p><b>PESTEL</b>: Political, Economic, Social, Technological, Environmental, Legal. External forces the company can't control. <a href="#b2-pestel">PESTEL</a></p></div></details>
+
+  <details class="q" id="q6"><summary><span class="qn">Q6</span><span class="qt">Value proposition, USP, competitive advantage?</span><label class="got"><input type="checkbox" data-k="q6" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p><b>Value proposition</b>: a stated set of benefits that satisfies the customer's needs and why they should choose you over competitors (broad). <b>USP</b>: the one distinct feature that makes you stand out (narrow). <b>Competitive advantage</b>: the long-term edge that lets you outperform competitors.</p><p class="note">Apple: easy, premium devices that work together / the camera / the ecosystem and brand loyalty. <a href="#b3-vp">More</a></p></div></details>
+
+  <details class="q" id="q7"><summary><span class="qn">Q7</span><span class="qt">What is the marketing mix?</span><label class="got"><input type="checkbox" data-k="q7" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>The factors a company <i>controls</i> to influence purchase decisions: the <b>4Ps</b> (Product, Price, Place, Promotion). The <b>7Ps</b> add People, Process and Physical evidence, for services and B2B. <a href="#b3-4p">The 4Ps</a></p></div></details>
+
+  <details class="q" id="q8"><summary><span class="qn">Q8</span><span class="qt">What are SMART goals?</span><label class="got"><input type="checkbox" data-k="q8" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Objectives that are Specific, Measurable, Attainable, Relevant and Time-bound. “Increase email subscribers by 15% over the next three months through targeted social media campaigns.”</p></div></details>
+
+  <details class="q" id="q9"><summary><span class="qn">Q9</span><span class="qt">What role do suppliers play in stakeholder analysis?</span><label class="got"><input type="checkbox" data-k="q9" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>They help shape product development, inform you about new trends and materials, inform you about the competition, and influence your pricing strategy.</p></div></details>
+
+  <details class="q" id="q10"><summary><span class="qn">Q10</span><span class="qt">In a SWOT, where do we talk about competitors?</span><label class="got"><input type="checkbox" data-k="q10" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>In the <b>Threats</b> (external). Clara's slide: “Who are the competitors, and what threats do they pose?” IKEA: Wayfair, Amazon, local stores.</p></div></details>
+
+  <details class="q" id="q11"><summary><span class="qn">Q11</span><span class="qt">What are the 4 criteria for B2C segmentation?</span><label class="got"><input type="checkbox" data-k="q11" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p><b>Demographic</b> (who: age, gender, income), <b>geographic</b> (where: country, city, urban or rural), <b>psychographic</b> (why: lifestyle, values, personality), <b>behavioural</b> (how: usage, loyalty, benefits sought, online vs store). <a href="#b5-seg">Segmentation</a></p></div></details>
+
+  <details class="q" id="q12"><summary><span class="qn">Q12</span><span class="qt">Do B2C and B2B segmentation use the same criteria?</span><label class="got"><input type="checkbox" data-k="q12" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p><b>No.</b> B2C segments individual consumers with the 4 criteria. B2B segments <i>companies</i>: industry, company size, location, revenue, technology used, how they buy (who decides, buying criteria), order size and urgency.</p><p class="note">Not in Clara's slides; this is the standard Kotler answer.</p></div></details>
+
+  <details class="q" id="q13"><summary><span class="qn">Q13</span><span class="qt">Which framework covers the stages a product goes through from introduction to decline?</span><label class="got"><input type="checkbox" data-k="q13" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>The <b>Product Life Cycle</b>: (development) → introduction → growth → maturity → decline. <a href="#b5-plc">Product life cycle</a></p></div></details>
+
+  <details class="q" id="q14"><summary><span class="qn">Q14</span><span class="qt">Which tool identifies and assesses stakeholders?</span><label class="got"><input type="checkbox" data-k="q14" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Stakeholder analysis, mainly the <b>Power/Interest Matrix (Mendelow's Matrix)</b>, which plots stakeholders by power and interest to prioritise them: key players, keep satisfied, keep informed, low priority. <a href="#b4-matrix">Mendelow's matrix</a></p></div></details>
+
+  <details class="q" id="q15"><summary><span class="qn">Q15</span><span class="qt">What is relationship marketing?</span><label class="got"><input type="checkbox" data-k="q15" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Building rich, multifaceted, long-term relationships with customers, channel members and other marketing partners. One of the 4 parts of holistic marketing. The aim is loyalty and customer lifetime value, not one-off sales.</p></div></details>
+
+  <details class="q" id="q16"><summary><span class="qn">Q16</span><span class="qt">What is a “niche” targeting strategy?</span><label class="got"><input type="checkbox" data-k="q16" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Concentrating on <b>one small, well-defined segment</b> with specific needs that bigger competitors ignore, and serving it better than anyone. Also called concentrated marketing. Example: Ferrari.</p><p class="note">Not in Clara's slides; standard textbook answer. <a href="#b5-target">Targeting</a></p></div></details>
+
+  <details class="q" id="q17"><summary><span class="qn">Q17</span><span class="qt">What is the primary goal of market segmentation?</span><label class="got"><input type="checkbox" data-k="q17" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>To divide a broad market into smaller groups with shared characteristics, so you can find the segments with the greatest opportunity and tailor your offer to them more efficiently, because not everyone wants the same thing.</p></div></details>
+
+  <details class="q" id="q18"><summary><span class="qn">Q18</span><span class="qt">What is the latest trend in market segmentation?</span><label class="got"><input type="checkbox" data-k="q18" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Using <b>AI</b> to personalise and reach very specific segments (Clara's exact slide). Products move away from standardisation towards niche and customisation.</p></div></details>
+
+  <details class="q" id="q19"><summary><span class="qn">Q19</span><span class="qt">Why do we do stakeholder analysis?</span><label class="got"><input type="checkbox" data-k="q19" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>To understand each stakeholder's expectations, power and likely reaction, so we can prioritise and manage them. Benefits: better communication, risk management, informed decisions, conflict prevention.</p></div></details>
+
+  <details class="q" id="q20"><summary><span class="qn">Q20</span><span class="qt">What do we do in competition analysis?</span><label class="got"><input type="checkbox" data-k="q20" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Identify and evaluate competitors' strengths, weaknesses, strategies and performance (product, pricing, distribution, branding, customer service, market share, financials) to understand the market, spot opportunities and threats, and position ourselves better.</p></div></details>
+
+  <details class="q" id="q21"><summary><span class="qn">Q21</span><span class="qt">Who are the “early adopters” in the innovation curve?</span><label class="got"><input type="checkbox" data-k="q21" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>The second group to buy (13.5%), after the innovators. The most influential opinion leaders: active on social media, writing reviews, with fairly high status, education and income. Less risky than innovators; they look for more information first. Winning them is the key to crossing the chasm to the mass market. <a href="#b5-adopt">Innovation curve</a></p></div></details>
+
+  <details class="q" id="q22"><summary><span class="qn">Q22</span><span class="qt">What is benchmarking?</span><label class="got"><input type="checkbox" data-k="q22" data-sec="exam">Got it</label></summary>
+  <div class="ans"><p>Comparing your performance, processes or offerings with the best in the industry (or direct competitors) to find gaps, areas to improve and best practices. Three types: competitive, functional, internal. <a href="#b2-bench">Benchmarking</a></p></div></details>
+</section>
+
+<!-- UNIT 1 -->
+<section class="top" id="unit1" data-sec="unit1">
+  <div class="top-head"><h2>Unit 1 · Key concepts</h2><span class="tag">C1 + C2n decks</span></div>
+  <p class="lead">The vocabulary everything else is built on. Exam questions 1–4 and 15 come from here.</p>
+
+  <details class="sub" id="u1-what"><summary><span class="chev">›</span><span class="sum-t">What marketing is<small>Drucker, Kotler, what marketing management does</small></span><label class="got"><input type="checkbox" data-k="u1-what" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Drucker:</b> the aim of marketing is to know and understand the customer so well that the product fits them and <b>sells itself</b>. Selling is not the most important part. <a class="x" href="#q1">Q1</a></div>
+    <div class="def"><b>Kotler</b> (“father of modern marketing”): marketing management is “the art and science of <b>choosing target markets</b> and <b>building profitable relationships</b> with them.” A process of analysis, planning, implementing and control, covering goods, services and ideas.</div>
+    <p><b>UX vs UI.</b> UX = how a user perceives an interaction with a company's website or product. UI = how it looks on the screen. Wii, iPad and Prius were swamped with orders because they were built on careful marketing homework about consumers, competition and external factors, and offered an extraordinary UX.</p>
+    <h4>What the marketing department decides</h4>
+    <p>Whom the company wants as customers · which needs to satisfy · what products to offer · what prices to set · what communications to send and receive · which distribution channels to use · which partnerships to develop. Marketing only succeeds when all departments work together (engineering, finance, purchasing, production, accounting).</p>
+    <h4>The 6 functions of marketing management</h4>
+    <ol class="steps"><li>Assessing marketing opportunities</li><li>Planning marketing activities</li><li>Organising marketing activities</li><li>Coordinating the company's different activities</li><li>Directing and motivating employees</li><li>Evaluating and controlling marketing efforts (compare actual vs planned, fix the gaps)</li></ol>
+    <h4>The 8 tasks in marketing management</h4>
+    <p>Develop strategies and plans · capture marketing insights · connect with customers · build strong brands · create value · deliver value · communicate value · conduct marketing responsibly for long-term success.</p>
+    <h4>What can be marketed (10)</h4>
+    <div class="tbl"><table><thead><tr><th>Type</th><th>Example from the slides</th></tr></thead><tbody>
+      <tr><td>Goods</td><td>Most of a country's production</td></tr>
+      <tr><td>Services</td><td>Airlines, banks, hotels (USA: 2/3 services vs 1/3 goods)</td></tr>
+      <tr><td>Events</td><td>Olympics, World Cup, trade shows</td></tr>
+      <tr><td>Experiences</td><td>Walt Disney World's Magic Kingdom</td></tr>
+      <tr><td>Persons</td><td>Athletes, CEOs, Oprah (“become a brand”)</td></tr>
+      <tr><td>Places</td><td>Las Vegas: “What happens here, stays here”</td></tr>
+      <tr><td>Properties</td><td>Real estate, stocks and bonds</td></tr>
+      <tr><td>Organisations</td><td>Museums, universities, nonprofits</td></tr>
+      <tr><td>Information</td><td>Books, schools, Thomson Reuters</td></tr>
+      <tr><td>Ideas</td><td>“Friends don't let friends drive drunk”; Revlon: “in the drugstore we sell hope”</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="sub" id="u1-needs"><summary><span class="chev">›</span><span class="sum-t">Needs, wants, demand<small>Maslow, 5 types of needs, 8 demand states</small></span><label class="got"><input type="checkbox" data-k="u1-needs" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="cards">
+      <div class="card"><b>Need</b>A basic human requirement: food, water, shelter, recreation, education.</div>
+      <div class="card"><b>Want</b>A need aimed at a specific object: a deep-dish pizza, a Mercedes. Shaped by society.</div>
+      <div class="card"><b>Demand</b>A want for a specific product <b style="display:inline;font-family:var(--body);font-size:inherit">backed by the ability to pay</b>.</div>
+    </div>
+    <p><b>Marketers don't create needs</b>: needs exist before marketers. An ad can say a Mercedes satisfies your need for status; it didn't create that need.</p>
+    <h4>Maslow's pyramid of needs (bottom to top)</h4>
+    <ol class="steps"><li><b>Physiological</b>: air, water, food, shelter, sleep, clothing</li><li><b>Safety</b>: personal security, employment, resources, health, property</li><li><b>Love and belonging</b>: friendship, intimacy, family, connection</li><li><b>Esteem</b>: respect, self-esteem, status, recognition</li><li><b>Self-actualisation</b>: becoming the most one can be</li></ol>
+    <h4>The 5 types of needs (car buyer)</h4>
+    <div class="tbl"><table><thead><tr><th>Need</th><th>Car buyer example</th></tr></thead><tbody>
+      <tr><td>Stated</td><td>“I want an inexpensive car.”</td></tr>
+      <tr><td>Real</td><td>A car whose <i>operating cost</i>, not initial price, is low.</td></tr>
+      <tr><td>Unstated</td><td>Expects good service from the dealer, never says it.</td></tr>
+      <tr><td>Delight</td><td>Would love the dealer to include an onboard GPS.</td></tr>
+      <tr><td>Secret</td><td>Wants friends to see them as a savvy consumer.</td></tr>
+    </tbody></table></div>
+    <p>Responding only to the stated need can shortchange the customer. Companies must help customers learn what they want (Apple shaping how people saw tablets).</p>
+    <h4>The 8 demand states</h4>
+    <div class="tbl"><table><thead><tr><th>State</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Negative</td><td>People would pay to avoid it</td><td>Dentist visits, vaccines</td></tr>
+      <tr><td>Nonexistent</td><td>Product exists; people unaware or uninterested</td><td>A brand-new supplement</td></tr>
+      <tr><td>Latent</td><td>Strong need no existing product satisfies</td><td>Cheap EV with 1,000 km range</td></tr>
+      <tr><td>Declining</td><td>People buy less often or stop</td><td>Printed newspapers</td></tr>
+      <tr><td>Irregular</td><td>Varies by season, month, week, day, hour</td><td>Ice cream in summer</td></tr>
+      <tr><td>Full</td><td>People buy everything put on the market</td><td>A stable staple</td></tr>
+      <tr><td>Overfull</td><td>More people want it than can be supplied</td><td>A console at launch</td></tr>
+      <tr><td>Unwholesome</td><td>Demand for something with bad social consequences</td><td>Cigarettes</td></tr>
+    </tbody></table></div>
+    <p class="note">The marketer's job: find the cause of the demand state and plan how to move it to a better one.</p>
+  </div></details>
+
+  <details class="sub" id="u1-people"><summary><span class="chev">›</span><span class="sum-t">Customers, consumers, markets<small>Who's who, 5 consumer roles, 4 key customer markets</small></span><label class="got"><input type="checkbox" data-k="u1-people" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="cards">
+      <div class="card"><b>Customer / client</b>Whoever buys it.</div>
+      <div class="card"><b>Consumer / user</b>The end user. Can't resell it.</div>
+      <div class="card"><b>Prospect</b>A potential client who meets your criteria; someone you can pitch to.</div>
+    </div>
+    <p>A dad buys a KitKat (customer), his kid eats it (consumer). Mercadona buying from Nestlé is Nestlé's customer, not a consumer.</p>
+    <h4>The 5 consumer roles</h4>
+    <p>A consumer plays four roles: <b>seeker, buyer, payer, user</b>. A fifth, <b>evangelizer</b>, captures that consumers often recommend products to others.</p>
+    <h4>The 4 key customer markets</h4>
+    <div class="tbl"><table><thead><tr><th>Market</th><th>What's special</th></tr></thead><tbody>
+      <tr><td>Consumer</td><td>Mass goods and services (juice, air travel). Strong brand, availability, engaging communication.</td></tr>
+      <tr><td>Business</td><td>Well-informed professional buyers. Sales force, price and reputation matter more than ads.</td></tr>
+      <tr><td>Global</td><td>Which countries, how to enter (export, licence, joint venture…), adapting product, price, communication.</td></tr>
+      <tr><td>Nonprofit &amp; governmental</td><td>Limited budgets, bids, often the lowest bid wins.</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="sub" id="u1-brand"><summary><span class="chev">›</span><span class="sum-t">Brand metrics<small>Awareness, image, penetration, market share</small></span><label class="got"><input type="checkbox" data-k="u1-brand" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Brand awareness</b> = number or % of people who know the brand. <a class="x" href="#q3">Q3</a></div>
+    <div class="cards">
+      <div class="card"><b>Top of mind</b>The first brand named, unaided.</div>
+      <div class="card"><b>Spontaneous</b>Any brand named without help.</div>
+      <div class="card"><b>Prompted</b>Recognised when shown or read the name.</div>
+    </div>
+    <p>Always: top of mind ≤ spontaneous ≤ prompted. After awareness, the <b>values associated</b> with the brand define its <b>brand image</b>.</p>
+    <div class="def"><b>Market share</b> = your sales as a % of the total market's sales, in value (€) or volume (units). Data comes from sell-out panels bought from suppliers like <b>Nielsen</b> (also Kantar, GfK, Gartner, IDG). YTD = year to date. <a class="x" href="#q2">Q2</a></div>
+    <p>Listerine example: total oral care market 421,820 thousand € (+10%). Mouthwash's share of oral care: 23.9% (Jul 02) → 25.7% → 25.9% → 27.1% (Apr 05), reported as <b>+1.8 p, +0.2 p, +1.2 p</b> (percentage points).</p>
+    <p><b>Penetration</b> = % of people who <i>use</i> the product or category. <span class="trap-tag">Know / use / sell</span> awareness / penetration / share.</p>
+    <h4>Building strong brands</h4>
+    <ol class="steps"><li>Awareness: people must know the brand exists</li><li>Trust: brand reputation = trust</li><li>Trial: they try it (promotion)</li></ol>
+  </div></details>
+
+  <details class="sub" id="u1-value"><summary><span class="chev">›</span><span class="sum-t">Value<small>Value proposition, offering, brand, value triad, satisfaction</small></span><label class="got"><input type="checkbox" data-k="u1-value" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Value proposition</b> = a stated set of benefits that satisfies the customer's needs, and why they should pick you over competitors. <a class="x" href="#q6">Q6</a></div>
+    <p><b>Offering</b> = the value proposition made real: a combination of products, services, information and experiences. <b>Brand</b> = an offering from a known source. Apple's associations: creative, innovative, easy-to-use, fun, cool.</p>
+    <p><b>Customer value triad</b> = <b>quality + service + price</b>. Perceived value rises with quality and service, falls with price.</p>
+    <div class="cards">
+      <div class="card"><b>Disappointed</b>Performance below expectations</div>
+      <div class="card"><b>Satisfied</b>Performance matches expectations</div>
+      <div class="card"><b>Delighted</b>Performance exceeds expectations</div>
+    </div>
+  </div></details>
+
+  <details class="sub" id="u1-holistic"><summary><span class="chev">›</span><span class="sum-t">Holistic marketing, new 4Ps, 4As<small>Relationship marketing lives here</small></span><label class="got"><input type="checkbox" data-k="u1-holistic" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <p><b>Holistic marketing</b> = designing marketing programmes that recognise how broad and interconnected today's marketing is. Four components:</p>
+    <div class="tbl"><table><thead><tr><th>Component</th><th>Meaning</th></tr></thead><tbody>
+      <tr><td>Internal</td><td>Everyone in the organisation, especially senior management, embraces marketing principles.</td></tr>
+      <tr><td>Integrated</td><td>All ways of creating, delivering and communicating value are combined in the best way.</td></tr>
+      <tr><td>Relationship <a class="x" href="#q15">Q15</a></td><td>Rich, multifaceted relationships with customers, channel members and other marketing partners.</td></tr>
+      <tr><td>Performance</td><td>Understanding the returns of marketing (financial and non-financial: brand and customer equity) plus legal, ethical, social and environmental effects.</td></tr>
+    </tbody></table></div>
+    <h4>The new 4Ps (holistic version)</h4>
+    <ul><li><b>People</b>: employees are critical to marketing success (internal marketing); see consumers as people, not just shoppers.</li><li><b>Processes</b>: the creativity, discipline and structure of marketing management.</li><li><b>Programs</b>: all consumer-directed activities, including the old 4Ps, integrated so the whole is greater than the sum.</li><li><b>Performance</b>: financial and non-financial outcomes, and effects beyond the company.</li></ul>
+    <h4>The 4 A's (Sheth &amp; Sisodia): the customer's side of the 4Ps</h4>
+    <div class="tbl"><table><thead><tr><th>Company sets</th><th>Customer feels</th><th>Dimensions</th></tr></thead><tbody>
+      <tr><td>Product</td><td>Acceptability</td><td>Does it meet or exceed expectations?</td></tr>
+      <tr><td>Price</td><td>Affordability</td><td>Economic (<i>can</i> pay) and psychological (<i>will</i> pay)</td></tr>
+      <tr><td>Place</td><td>Accessibility</td><td>Availability and convenience (Zappos)</td></tr>
+      <tr><td>Promotion</td><td>Awareness</td><td>Brand awareness and product knowledge. Sheth &amp; Sisodia say it's the most open to improvement</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="sub" id="u1-media"><summary><span class="chev">›</span><span class="sum-t">Media and channels<small>Paid/owned/earned, native, impressions, the 3 channels</small></span><label class="got"><input type="checkbox" data-k="u1-media" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="cards">
+      <div class="card"><span class="ltr">P</span><b>Paid</b>You pay a fee: TV, display ads, paid search, sponsorships, paid influencers, retargeting.</div>
+      <div class="card"><span class="ltr">O</span><b>Owned</b>Channels you own: website, mobile site, blog, brand social accounts.</div>
+      <div class="card"><span class="ltr">E</span><b>Earned</b>Others talk about you voluntarily: mentions, shares, reposts, reviews, word of mouth.</div>
+    </div>
+    <p class="note">“Digital marketing trifecta”: paid promotion propels sharing (earned), SEO and owned content drive earned traffic, paid gives owned properties more exposure.</p>
+    <p><b>Native advertising</b> = paid ads made to blend in with the platform's own content (“sponsored”, “branded”), which reduces ad recognition. Still <b>paid</b>.</p>
+    <p><b>Impressions</b> = people saw it (reach), no insight into results. <b>Engagement</b> = active involvement (likes, comments, shares); more valuable. Three “screens” reach consumers: TV, internet, mobile; 3 in 5 consumers use two screens at once.</p>
+    <h4>The 3 marketing channels</h4>
+    <div class="tbl"><table><thead><tr><th>Channel</th><th>Job</th></tr></thead><tbody>
+      <tr><td>Communication</td><td>Deliver and receive messages: media, stores, websites; dialogue (email, blogs) and monologue (ads).</td></tr>
+      <tr><td>Distribution</td><td>Display, sell or deliver the product. Direct (internet, phone) or indirect (wholesalers, retailers, agents).</td></tr>
+      <tr><td>Service</td><td>Support the transaction: warehouses, transport, banks, insurers.</td></tr>
+    </tbody></table></div>
+    <h4>Media history and today's numbers</h4>
+    <ul>
+      <li>19th century: Gutenberg's printing press → daily newspapers. 1836: La Presse is the first paper to use paid advertising to lower its price.</li>
+      <li>20th century: radio (1920s consumerism), TV boom after WWII, cable in the 80s–90s. In the 90s a prime-time TV slot reached up to 20 million viewers.</li>
+      <li>2020: print readership −34%, TV viewers −10%, out-of-home and cinema stable, online +140% in a decade.</li>
+      <li>The average person spends 2½ hours a day on social media (one day a week online). Over half the world owns a smartphone.</li>
+      <li>You no longer buy a specific medium; you buy a specific <b>audience</b> across many platforms.</li>
+    </ul>
+  </div></details>
+
+  <details class="sub" id="u1-digital"><summary><span class="chev">›</span><span class="sum-t">The digital shift<small>Customer-centric marketing, new capabilities</small></span><label class="got"><input type="checkbox" data-k="u1-digital" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <ul>
+      <li><b>From product-centric to customer-centric</b>: from managing a product portfolio to managing a <b>customer portfolio</b>. Databases let you understand customers better and send personalised offers. Less standardisation, more niche and customisation.</li>
+      <li><b>From monologues to conversations</b>: company messages are a small fraction of the online conversation about a product. The power of customers grows.</li>
+      <li><b>Digital metrics</b>: consumer profitability, customer lifetime value (CLV), return on marketing investment (ROMI). Detailed, accurate analysis of sales and competition; adaptable strategy.</li>
+      <li><b>Ethics</b>: marketing decisions have consequences.</li>
+    </ul>
+    <div class="cards">
+      <div class="card"><b>New consumer capabilities</b>Search and buy on the move, share opinions and loyalty on social media, interact with companies, reject marketing they dislike.</div>
+      <div class="card"><b>New company capabilities</b>Internet as an information and sales channel, richer data on markets and competitors, fast targeted reach via social and mobile, better internal processes, cost efficiency.</div>
+    </div>
+  </div></details>
+
+  <details class="sub" id="u1-env"><summary><span class="chev">›</span><span class="sum-t">Marketing environment and supply chain<small>Task vs broad environment, value delivery</small></span><label class="got"><input type="checkbox" data-k="u1-env" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <p><b>Core marketing concepts</b> (Clara's list): needs, wants and demands · target markets, positioning, segmentation · offerings and brands · marketing channels · paid, owned, earned media · impressions and engagement · value and satisfaction · supply chain · competition · marketing environment.</p>
+    <div class="cards">
+      <div class="card"><b>Task environment</b>The players in producing, distributing and promoting the offering: suppliers (materials and services like research or ad agencies, banks, transport), distributors and dealers, target customers.</div>
+      <div class="card"><b>Broad environment</b>Six components: demographic, economic, social-cultural, natural, technological, political-legal. Track trends and adjust strategy.</div>
+    </div>
+    <p><b>Supply chain</b> = the channel from raw materials to components to finished products carried to final buyers. Each company captures only part of the total value; acquiring competitors or expanding upstream or downstream captures more. Coffee example: Ethiopian farmers → Fair Trade cooperative → Alternative Trading Organisation (pays at least $1.26 a pound) → developed-world retail.</p>
+  </div></details>
+
+  <details class="sub" id="u1-size"><summary><span class="chev">›</span><span class="sum-t">Market size and competition<small>TAM, SAM, SOM; direct vs indirect</small></span><label class="got"><input type="checkbox" data-k="u1-size" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <figure class="fig"><svg viewBox="0 0 640 230" role="img" aria-label="TAM contains SAM, which contains SOM">
+      <rect x="10" y="10" width="620" height="210" rx="18" fill="var(--sunk)" stroke="var(--line)"/>
+      <text x="30" y="38" fill="var(--ink)" font-weight="700" font-size="16">TAM · total available market</text>
+      <text x="30" y="58" fill="var(--muted)" font-size="13">All demand for the product (all fitness-app spending worldwide)</text>
+      <rect x="60" y="74" width="520" height="134" rx="14" fill="var(--surface)" stroke="var(--line)"/>
+      <text x="80" y="100" fill="var(--ink)" font-weight="700" font-size="16">SAM · serviceable available market</text>
+      <text x="80" y="119" fill="var(--muted)" font-size="13">The part your products target, within your geographic reach</text>
+      <rect x="120" y="134" width="400" height="62" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"/>
+      <text x="140" y="160" fill="var(--accent-ink)" font-weight="700" font-size="16">SOM · serviceable obtainable market</text>
+      <text x="140" y="180" fill="var(--accent-ink)" font-size="13">The share of SAM you can realistically win</text>
+    </svg><figcaption>SOM is your realistic potential; market share is what you actually won.</figcaption></figure>
+    <p><b>Competition</b> = all actual and potential rival offerings <b>and substitutes</b>. <b>Direct</b>: same product (Netflix vs Disney+). <b>Indirect</b>: different product, same need (Netflix vs cinema).</p>
+  </div></details>
+
+  <details class="sub" id="u1-research"><summary><span class="chev">›</span><span class="sum-t">Market research<small>Quant vs qual, methods, facts vs insights</small></span><label class="got"><input type="checkbox" data-k="u1-research" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <p><b>Analyse marketing opportunities</b> by looking at four things: the market, the suppliers, the competition, the consumer. Consumer analysis asks: who are your customers, what do they need, what drives their decision, how does your product meet their needs.</p>
+    <div class="cards">
+      <div class="card"><b>Quantitative</b>Big samples (ideally ~1,000). The <i>what</i> and <i>how many</i>. Gives <b style="display:inline;font-family:var(--body);font-size:inherit">facts (%)</b>, from closed questions.</div>
+      <div class="card"><b>Qualitative</b>Small groups, open questions. The <i>why</i>. Gives <b style="display:inline;font-family:var(--body);font-size:inherit">insights (feelings)</b>.</div>
+    </div>
+    <div class="tbl"><table><thead><tr><th>Method</th><th>Type</th><th>Details</th></tr></thead><tbody>
+      <tr><td>In-depth interviews</td><td>Qual</td><td>1h–1h30, 10–20 people. Heavy users, key opinion leaders, non-users; find insights for communication.</td></tr>
+      <tr><td>Focus groups</td><td>Qual</td><td>6–8 people per group, 4–8 groups, 1h30–2h. Rich discussion; test how messages land.</td></tr>
+      <tr><td>U&amp;A (usage &amp; attitude)</td><td>Quant</td><td>Long questionnaire, a snapshot in time; compares countries, defines clusters. Penetration, reasons to buy or not, moment and frequency of use.</td></tr>
+      <tr><td>Historical tracking</td><td>Quant</td><td>Same metrics, method and supplier for a long time: penetration, awareness, reasons for not using, recommendation.</td></tr>
+      <tr><td>Omnibus</td><td>Quant</td><td>One survey shared by several clients, who split the cost. Cheaper; your own study is pricier but more flexible.</td></tr>
+    </tbody></table></div>
+    <p><b>Fact</b>: “27% of the population use mouthwash.” <b>Insight</b>: “I feel confident once I know 99% of my germs are killed.” <b>Market insight</b> = discovering a relevant, actionable, previously unrealised reality about a target market. Research output feeds the <b>value proposition</b>.</p>
+    <p><b>B2C customer research sample</b>: profile, income, age range, lifestyle, location, scope (number of potential customers), customer base (share), purchase history.</p>
+    <p><b>Online tools</b>: Google Forms, SurveyMonkey. <b>Social media research</b>: polls, contests, call-to-action posts, brand mentions, Instagram question stickers and emoji sliders.</p>
+    <p><span class="trap-tag">Common mistakes</span> stopping a historical tracking, changing the sample or the question, the wrong target (a cynical person can wreck a focus group's dynamic). Ask users <i>and</i> buyers.</p>
+  </div></details>
+
+  <details class="sub" id="u1-plan"><summary><span class="chev">›</span><span class="sum-t">Goals, objectives, strategy, tactics<small>The planning vocabulary</small></span><label class="got"><input type="checkbox" data-k="u1-plan" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <div class="tbl"><table><thead><tr><th>Term</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Goal</td><td>A broad target you hope to reach</td><td>Become the go-to beginner fitness app in Spain</td></tr>
+      <tr><td>Objective</td><td>An actionable short-term step, ideally SMART; several per goal</td><td>+15% downloads in Q1 through Reels</td></tr>
+      <tr><td>Strategy</td><td>The path to the goal; broad, longer-term; 2–5 per brand</td><td>Be eco-friendly; launch products for a younger target</td></tr>
+      <tr><td>Tactic</td><td>A specific short-term action; the HOW</td><td>Switch to recycled packaging; weekly Instagram ads</td></tr>
+    </tbody></table></div>
+    <p><b>Consumer insight</b> vs <b>insight</b>: a consumer insight is a statement the consumer shares about how they feel or think about a sector or product.</p>
+  </div></details>
+
+  <details class="sub" id="u1-society"><summary><span class="chev">›</span><span class="sum-t">Marketing and society<small>9 roles, social responsibility</small></span><label class="got"><input type="checkbox" data-k="u1-society" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <p>Marketing's 9 roles in society: facilitating economic growth · satisfying consumer needs · encouraging innovation · supporting social change (anti-smoking, recycling) · creating jobs · providing information · cultural influence and identity · improving standards of living · enhancing brand and community engagement (CSR).</p>
+    <p><b>Social responsibility (CSR)</b>: the company doing things for society. Customers engage with brands with a good image; employees who share the company's values are more productive and motivated. Gen Z (born ~1997–2012) was predicted to be ~27% of the workforce by 2025, and climate is a primary concern for them.</p>
+  </div></details>
+
+  <details class="sub" id="u1-cases"><summary><span class="chev">›</span><span class="sum-t">Case studies<small>What they are, types, why companies use them</small></span><label class="got"><input type="checkbox" data-k="u1-cases" data-sec="unit1">Got it</label></summary>
+  <div class="body">
+    <p><b>Key elements</b>: introduction (company, background) → the problem the client needed to solve → the solution (and why your company was the right fit) → the result (data before and after).</p>
+    <div class="cards">
+      <div class="card"><b>Third-person / client</b>One client's experience with your company or product.</div>
+      <div class="card"><b>Explanatory</b>The impact of a marketing strategy on growth; observation and inference, not first-hand.</div>
+      <div class="card"><b>Implementation</b>Goes further, covering the actual implementation in detail.</div>
+    </div>
+    <p><b>Why use them</b>: in 2020 only 14% of consumers trusted advertising to be honest; 91% of 18–34-year-olds trust online reviews as much as personal recommendations; a customer testimonial can raise conversion by up to 34%. Companies need social proof. Video case studies are growing (L'Oréal × YouTube: No. 2 in category, 34% of mass online sales).</p>
+    <p class="note">Case examples Clara listed: McDonald's (SWOT 2018), Spotify, Netflix, IKEA, Zara, Starbucks, Patagonia, Apple, Nike, Lush, LEGO, Dove.</p>
+  </div></details>
+</section>
+
+<!-- BLOCK 2 -->
+<section class="top" id="block2" data-sec="block2">
+  <div class="top-head"><h2>Block 2 · Market analysis</h2><span class="tag">C3, C4, C5, TOWS</span></div>
+  <p class="lead">PESTEL looks at the whole world, Porter at the industry, SWOT at your company; competitor analysis and benchmarking compare you to rivals. Exam questions 5, 10, 20 and 22.</p>
+
+  <details class="sub" id="b2-plan"><summary><span class="chev">›</span><span class="sum-t">The marketing plan<small>10 sections as 6 questions</small></span><label class="got"><input type="checkbox" data-k="b2-plan" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <p>Memorise the questions; the order follows from them.</p>
+    <div class="plan-q">
+      <div class="pq"><em>What's the plan about?</em><span>1. Executive summary: brief overview of goals and strategies (written last, placed first)</span></div>
+      <div class="pq"><em>Where are we now?</em><span>2. Market analysis: industry overview, target market, <b>competitive analysis</b> · 3. SWOT</span></div>
+      <div class="pq"><em>Where do we want to go?</em><span>4. Marketing objectives: <b>SMART goals</b></span></div>
+      <div class="pq"><em>How do we get there?</em><span>5. Marketing strategies: <b>STP, value proposition</b>, differentiation · 6. Marketing mix (4Ps or 7Ps)</span></div>
+      <div class="pq"><em>What will it take?</em><span>7. Budget · 8. Implementation plan (who does what, when)</span></div>
+      <div class="pq"><em>Did it work?</em><span>9. Metrics and evaluation (KPIs) · 10. Appendices</span></div>
+    </div>
+    <p><b>The flow behind it</b> (C2n): external analysis (PESTEL, Porter's 5 forces, market growth, competition, suppliers, consumer) + internal analysis (mission, vision, values, company situation, projects, people, priorities) → SWOT → marketing mix strategy → marketing plan.</p>
+    <p><b>Macro vs micro</b>: macroeconomics = decisions of countries and governments; microeconomics = decisions of individuals and businesses. Clara labels <b>PESTEL macro</b>, <b>Porter and SWOT micro</b>.</p>
+  </div></details>
+
+  <details class="sub" id="b2-pestel"><summary><span class="chev">›</span><span class="sum-t">PESTEL<small>The macro framework, with every example from the slides</small></span><label class="got"><input type="checkbox" data-k="b2-pestel" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>PESTEL</b> breaks the broader environment into six categories of external, macro-level forces that affect a whole economy. Used to assess risks, opportunities and trends. The company can't control them. <a class="x" href="#q5">Q5</a></div>
+    <div class="tbl"><table><thead><tr><th>Factor</th><th>Covers</th><th>Examples on Clara's slides</th></tr></thead><tbody>
+      <tr><td>Political</td><td>What the government does</td><td>Government policy, political stability, corruption, foreign trade policy, tax policy, labour law, trade restrictions, tariffs, lobbying</td></tr>
+      <tr><td>Economic</td><td>Money in the economy, profitability</td><td>Economic growth, exchange rates, interest rates, inflation, disposable income, unemployment, consumer confidence</td></tr>
+      <tr><td>Social</td><td>People's trends</td><td>Population growth, age distribution, career attitudes, safety emphasis, health consciousness, lifestyle attitudes, cultural barriers, family structure</td></tr>
+      <tr><td>Technological</td><td>Innovation</td><td>Technology incentives, level of innovation, automation, R&amp;D activity, technological change and awareness, digitalisation</td></tr>
+      <tr><td>Environmental</td><td>Nature and climate</td><td>Weather, climate, environmental policies, climate change, pressures from NGOs, carbon footprint</td></tr>
+      <tr><td>Legal</td><td>The actual laws</td><td>Discrimination laws, antitrust, employment law, consumer protection, copyright and patents, health and safety, advertising standards</td></tr>
+    </tbody></table></div>
+    <p><span class="trap-tag">Trap</span> Classify by the <b>cause</b>, not by who is affected. Inflation making students cancel apps = economic, not social. A tax change = political; a data-privacy law = legal.</p>
+  </div></details>
+
+  <details class="sub" id="b2-porter"><summary><span class="chev">›</span><span class="sum-t">Porter's 5 Forces<small>How intense competition is, so how profitable the industry is</small></span><label class="got"><input type="checkbox" data-k="b2-porter" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <p>By <b>Michael E. Porter</b>. Every force is someone who can take your profit; the stronger the forces, the harder it is to make money.</p>
+    <div class="tbl"><table><thead><tr><th>Force</th><th>Question + drivers</th><th>Apple / smartphones</th></tr></thead><tbody>
+      <tr><td>Threat of new entrants</td><td>How easily can new firms get in? Barriers: capital, brand loyalty, economies of scale, regulation, access to distribution, switching costs</td><td>Moderate–high (Xiaomi, OnePlus)</td></tr>
+      <tr><td>Supplier power</td><td>Can suppliers push prices up? High when suppliers are few, specialised, unique, or costly to switch</td><td>Moderate (Qualcomm chips, Samsung OLEDs)</td></tr>
+      <tr><td>Buyer power</td><td>Can customers push prices down? High with many alternatives, price sensitivity, big orders, good information</td><td>High</td></tr>
+      <tr><td>Threat of substitutes</td><td>Can customers switch to a <i>different</i> product meeting the same need? Caps price increases</td><td>High (tablets, feature phones)</td></tr>
+      <tr><td>Rivalry</td><td>How hard do existing players fight? Number of competitors, industry growth, exit barriers, price and innovation wars</td><td>Very high (Samsung, Google, Huawei)</td></tr>
+    </tbody></table></div>
+    <p><span class="trap-tag">Trap</span> <b>Low</b> barriers to entry = <b>high</b> threat of new entrants. Mercadona buying yoghurt = <b>buyer</b> power for the yoghurt brand. YouTube videos vs a fitness app = <b>substitute</b>; another workout app = <b>rival</b>.</p>
+    <p class="note"><span class="bonus">Hidden slide</span> The detailed drivers come from a hidden slide in C2n, probably not shown in class.</p>
+  </div></details>
+
+  <details class="sub" id="b2-swot"><summary><span class="chev">›</span><span class="sum-t">SWOT and TOWS<small>Internal vs external, then turning it into strategy</small></span><label class="got"><input type="checkbox" data-k="b2-swot" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <div class="grid2" role="table" aria-label="SWOT grid">
+      <div></div><div class="ax">Helpful to the objective</div><div class="ax">Harmful to the objective</div>
+      <div class="ax">Internal origin</div>
+      <div class="cell"><b>Strengths</b>What we do well; unique resources. IKEA: global brand, affordable stylish range, efficient supply chain, store experience, sustainability.</div>
+      <div class="cell"><b>Weaknesses</b>Where we struggle. IKEA: complex assembly, seen as lower quality, little customisation.</div>
+      <div class="ax">External origin</div>
+      <div class="cell"><b>Opportunities</b>Trends we can use, gaps to fill. IKEA: eco demand, emerging markets (India, Asia), e-commerce, smart home.</div>
+      <div class="cell hot"><b>Threats</b>External challenges. <b style="display:inline;font-size:inherit">Competitors go here</b> <a class="x" href="#q10">Q10</a>. IKEA: Wayfair, Amazon, downturns, material prices, supply chain.</div>
+    </div>
+    <p><b>Test</b>: is it about the company itself (S/W) or something outside it (O/T)? A low app rating is a <b>weakness</b>, even if compared to rivals.</p>
+    <h4>TOWS: from SWOT to strategy</h4>
+    <div class="grid2" role="table" aria-label="TOWS grid">
+      <div></div><div class="ax">Strengths</div><div class="ax">Weaknesses</div>
+      <div class="ax">Opportunities</div>
+      <div class="cell"><b>SO</b>Use strengths to maximise opportunities. IKEA's brand → eco products online.</div>
+      <div class="cell"><b>WO</b>Reduce weaknesses to develop opportunities. Fix a weak online shop → e-commerce boom.</div>
+      <div class="ax">Threats</div>
+      <div class="cell"><b>ST</b>Use strengths to reduce threats. Supply chain absorbs rising material costs.</div>
+      <div class="cell"><b>WT</b>Avoid threats by reducing weaknesses. Assembly service so customers don't switch to ready-built rivals.</div>
+    </div>
+  </div></details>
+
+  <details class="sub" id="b2-comp"><summary><span class="chev">›</span><span class="sum-t">Competitor analysis<small>Understanding rivals</small></span><label class="got"><input type="checkbox" data-k="b2-comp" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Competitor analysis</b> = identifying and evaluating competitors' strengths, weaknesses, strategies and performance. <a class="x" href="#q20">Q20</a></div>
+    <p><b>Why</b>: understand market dynamics · identify opportunities and threats · position your product better · improve decisions and strategy.</p>
+    <p><b>The 7 areas</b>: product offerings · pricing strategy · distribution channels · marketing and branding · customer service · market share · financial performance.</p>
+    <p><b>Clara's exercise table</b>: product features, price level, distribution channels, branding/positioning, customer reviews, USP, for your company vs 3 competitors. Exercise markets: a US fitness app startup, a European plant-based food firm entering Asia, a luxury brand entering online resale.</p>
+  </div></details>
+
+  <details class="sub" id="b2-bench"><summary><span class="chev">›</span><span class="sum-t">Benchmarking<small>Measuring yourself against the best</small></span><label class="got"><input type="checkbox" data-k="b2-bench" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Benchmarking</b> = comparing your performance, processes or offerings with the best in the industry (or direct competitors) to identify gaps, areas to improve and best practices. <a class="x" href="#q22">Q22</a></div>
+    <div class="cards">
+      <div class="card"><b>Competitive</b>Directly vs competitors.</div>
+      <div class="card"><b>Functional</b>Vs others doing a similar function, even in a different industry.</div>
+      <div class="card"><b>Internal</b>Vs teams or units inside your own company.</div>
+    </div>
+    <p><b>KPIs commonly benchmarked</b>: conversion rate, customer retention rate, customer acquisition cost (CAC), ROI, website traffic and engagement. <b>Purposes</b>: identify best practices, competitive analysis (your position, gaps, differentiation), set performance goals, improve marketing efficiency.</p>
+    <div class="tbl"><table><thead><tr><th>Metric</th><th>Your brand</th><th>Best competitor</th><th>Gap</th></tr></thead><tbody>
+      <tr><td>App Store rating</td><td>3.8</td><td>4.7</td><td>−0.9</td></tr>
+      <tr><td>Monthly active users</td><td>50,000</td><td>200,000</td><td>−150,000</td></tr>
+      <tr><td>Instagram engagement</td><td>1.2%</td><td>3.0%</td><td>−1.8 points</td></tr>
+    </tbody></table></div>
+    <p>Action plan from the gaps: improve UX and onboarding, boost referral marketing, work with micro-influencers.</p>
+  </div></details>
+
+  <details class="sub" id="b2-share"><summary><span class="chev">›</span><span class="sum-t">Market share in a changing market<small>Clara's class exercise</small></span><label class="got"><input type="checkbox" data-k="b2-share" data-sec="block2">Got it</label></summary>
+  <div class="body">
+    <ul>
+      <li><b>Can share rise while the market falls?</b> Yes: market −20%, your sales −10% → your slice grows.</li>
+      <li><b>Can share fall while the market grows?</b> Yes: market +30%, you +15% → rivals grew faster.</li>
+      <li>Rising share shows <b>the brand performs above the market</b>, whether the market grows or shrinks.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- BLOCK 3 -->
+<section class="top" id="block3" data-sec="block3">
+  <div class="top-head"><h2>Block 3 · Marketing mix &amp; SMART</h2><span class="tag">C4, C5, exercise</span></div>
+  <p class="lead">The mix is what you control; SMART goals are the objectives it serves. Exam questions 6, 7 and 8.</p>
+
+  <details class="sub" id="b3-4p"><summary><span class="chev">›</span><span class="sum-t">The 4Ps<small>Every component from the slides</small></span><label class="got"><input type="checkbox" data-k="b3-4p" data-sec="block3">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Marketing mix</b> = the factors a business <b>can control</b> to influence consumers' purchase decisions. Opposite of PESTEL. <a class="x" href="#q7">Q7</a></div>
+    <div class="tbl"><table><thead><tr><th>P</th><th>What it is</th><th>Components (Kotler diagram + key considerations)</th></tr></thead><tbody>
+      <tr><td>Product</td><td>What you offer: goods, services or both</td><td>Variety, quality, design, features, brand name, packaging, sizes, services, warranties, returns, product life cycle stage</td></tr>
+      <tr><td>Price</td><td>What the customer pays</td><td>List price, discounts, allowances, payment period, credit terms; pricing strategy; perceived value; competitors' prices</td></tr>
+      <tr><td>Place</td><td>Where and how it's sold and delivered</td><td>Channels (retail, online, direct), coverage, assortments, locations, inventory, transport/logistics</td></tr>
+      <tr><td>Promotion</td><td>How you communicate and persuade</td><td>Advertising, sales promotion, sales force (personal selling), public relations, direct marketing, social and digital</td></tr>
+    </tbody></table></div>
+    <div class="cards">
+      <div class="card"><b>Pricing strategies</b>Cost-plus (cost + margin) · value-based · <b style="display:inline;font-family:var(--body);font-size:inherit">penetration</b> (enter low to win a big market) · <b style="display:inline;font-family:var(--body);font-size:inherit">skimming</b> (enter high, lower later) · loss leader · premium.</div>
+      <div class="card"><b>Market coverage</b>Intensive (everywhere: Coca-Cola) · selective (chosen outlets) · exclusive (very few: Rolex).</div>
+    </div>
+  </div></details>
+
+  <details class="sub" id="b3-7p"><summary><span class="chev">›</span><span class="sum-t">7Ps and the 8th P<small>For services and B2B</small></span><label class="got"><input type="checkbox" data-k="b3-7p" data-sec="block3">Got it</label></summary>
+  <div class="body">
+    <div class="tbl"><table><thead><tr><th>P</th><th>Meaning</th><th>Items on the 7P wheel</th></tr></thead><tbody>
+      <tr><td>People</td><td>Everyone delivering it, staff and customers</td><td>Founders, employees, culture, customer service, training, relationships</td></tr>
+      <tr><td>Process</td><td>The procedures that deliver the service</td><td>Service delivery, complaints, response time, efficiency, customer experience</td></tr>
+      <tr><td>Physical evidence</td><td>Tangible clues to judge a service before buying</td><td>Store layout and cleanliness, packaging, website/UI, user stories, recommendations, office premises, reviews, buzz</td></tr>
+      <tr><td>Partnership (8th)</td><td>Partners that add value</td><td>Heineken × Champions League</td></tr>
+    </tbody></table></div>
+    <p>Clara's rule of thumb: <b>4Ps for a B2C product, 7Ps for a B2B product</b>.</p>
+  </div></details>
+
+  <details class="sub" id="b3-examples"><summary><span class="chev">›</span><span class="sum-t">Mix examples from class<small>Nike, Lay's, Heineken, the storecheck exercise</small></span><label class="got"><input type="checkbox" data-k="b3-examples" data-sec="block3">Got it</label></summary>
+  <div class="body">
+    <div class="tbl"><table><thead><tr><th>Nike</th><th>Strategy</th><th>Tactics</th></tr></thead><tbody>
+      <tr><td>Product</td><td>Innovative footwear and apparel for many sports and lifestyles</td><td>Limited-edition collaborations, better technology</td></tr>
+      <tr><td>Price</td><td>Premium but accessible</td><td>Value-based pricing, seasonal discounts, consistent prices</td></tr>
+      <tr><td>Place</td><td>Wide availability online and offline</td><td>Direct-to-consumer site, major retailers, exclusive stores</td></tr>
+      <tr><td>Promotion</td><td>Strong brand presence</td><td>Influencers, athlete sponsorships, community initiatives</td></tr>
+    </tbody></table></div>
+    <p><b>Lay's (objective +20%, strategy: healthy / professionals)</b>: organic potato, less oil, sugar-cane biodegradable packaging, smaller size for Mercadona; price +5%; cinemas (10%, 10,000 units) and Mercadona (12% weighted distribution, €30,000 listing fees); nutritionist and influencer KOLs, media mix, 3x2 only in Mercadona for 3 summer months.</p>
+    <p><b>Heineken Spain</b>: Champions League partnership design, 0.0 and 9.5% versions; price +2%, same price for all shapes; supermarkets and Horeca, beach booths in summer, +1% distribution in bars; 10-litre jar, 2–6 packs, key message and media mix.</p>
+    <p><b>Storecheck exercise</b> (KitKat, Lay's, Hellmann's, Magnum, Vivesoy): analyse all 4Ps, then a presentation with introduction, 4P analysis, conclusion and recommendations.</p>
+  </div></details>
+
+  <details class="sub" id="b3-smart"><summary><span class="chev">›</span><span class="sum-t">SMART goals<small>And how goals, strategies and tactics stack</small></span><label class="got"><input type="checkbox" data-k="b3-smart" data-sec="block3">Got it</label></summary>
+  <div class="body">
+    <div class="cards">
+      <div class="card"><span class="ltr">S</span><b>Specific</b>“Increase website traffic from social media”, not “increase awareness”.</div>
+      <div class="card"><span class="ltr">M</span><b>Measurable</b>A number or %: “by 20%”.</div>
+      <div class="card"><span class="ltr">A</span><b>Attainable</b>Ambitious but realistic for budget and team (some slides: Achievable).</div>
+      <div class="card"><span class="ltr">R</span><b>Relevant</b>Serves the bigger business objective.</div>
+      <div class="card"><span class="ltr">T</span><b>Time-bound</b>A deadline: “over the next 3 months”.</div>
+    </div>
+    <p>IKEA: “Increase IKEA's online sales revenue from emerging markets (India and Southeast Asia) by 25% within the next 12 months by enhancing the e-commerce platform and targeted digital marketing campaigns.” <a class="x" href="#q8">Q8</a></p>
+    <p><b>Strategy</b> = broad, long-term approach (“increase brand awareness by targeting young adults through digital marketing”). <b>Tactics</b> = specific short-term actions, the examples in the plan (“targeted Instagram ads”, “a weekly content calendar”, “influencer partnerships”). Clara's IKEA exercise: <b>1 SMART goal → 2–3 strategies → 2 tactics each</b>.</p>
+  </div></details>
+
+  <details class="sub" id="b3-vp"><summary><span class="chev">›</span><span class="sum-t">Value proposition, USP, competitive advantage<small>Broad promise, one feature, long-term edge</small></span><label class="got"><input type="checkbox" data-k="b3-vp" data-sec="block3">Got it</label></summary>
+  <div class="body">
+    <div class="tbl"><table><thead><tr><th>Concept</th><th>Focus</th><th>Scope</th><th>Apple</th></tr></thead><tbody>
+      <tr><td>Value proposition</td><td>Why customers should choose you overall</td><td>Broad: several benefits</td><td>Easy, premium devices that work together</td></tr>
+      <tr><td>USP</td><td>One distinct, unique feature</td><td>Narrow: a single feature</td><td>The iPhone camera</td></tr>
+      <tr><td>Competitive advantage</td><td>Long-term strategy or attributes to outperform rivals</td><td>Strategic edge</td><td>Ecosystem and brand loyalty</td></tr>
+    </tbody></table></div>
+    <p><b>A strong value proposition covers</b>: target audience, problem or need, benefits and differentiators, outcome. <b>Key elements</b>: clear and compelling, focused on benefits not features, differentiation, quantifiable results (optional). Spotify: “Music for everyone…” Differentiator: free + premium with personalised playlists and offline listening.</p>
+    <p class="note">Class examples to try: Uber, IKEA, Disney Park, Zara.</p>
+  </div></details>
+</section>
+
+<!-- BLOCK 4 -->
+<section class="top" id="block4" data-sec="block4">
+  <div class="top-head"><h2>Block 4 · Stakeholders</h2><span class="tag">C5</span></div>
+  <p class="lead">Three exam questions: why we do stakeholder analysis, which tool we use, what suppliers do. Questions 9, 14, 19.</p>
+
+  <details class="sub" id="b4-who"><summary><span class="chev">›</span><span class="sum-t">Who stakeholders are<small>Internal, external, non-typical; the role of suppliers</small></span><label class="got"><input type="checkbox" data-k="b4-who" data-sec="block4">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Stakeholder in marketing</b> = any individual, group or organisation that has an interest in, or can be affected by, a company's marketing, and whose actions can affect its success.</div>
+    <div class="cards">
+      <div class="card"><b>Internal</b>Employees (sales team, product development), executives.</div>
+      <div class="card"><b>External</b>Customers, shareholders, influencers, external agencies (creative, research), suppliers, retailers and distributors, regulators.</div>
+      <div class="card"><b>Non-typical</b>Competitors, regulatory authorities.</div>
+    </div>
+    <p><b>Suppliers</b> <a class="x" href="#q9">Q9</a>: help shape product development · inform about new trends and materials · inform about the competition · influence pricing strategies.</p>
+  </div></details>
+
+  <details class="sub" id="b4-why"><summary><span class="chev">›</span><span class="sum-t">Why we analyse them<small>Definition, 4 steps, 4 benefits</small></span><label class="got"><input type="checkbox" data-k="b4-why" data-sec="block4">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>Stakeholder analysis</b> = identifying and assessing the people and groups with an interest or influence in a project or decision, to understand their <b>expectations</b>, their <b>power or influence</b>, and how they're likely to <b>react</b>. <a class="x" href="#q19">Q19</a></div>
+    <ol class="steps"><li>Identify stakeholders</li><li>Categorise them</li><li>Assess their influence and interest</li><li>Develop a stakeholder management strategy</li></ol>
+    <div class="cards">
+      <div class="card"><b>Communication</b>The right level for each; less misalignment.</div>
+      <div class="card"><b>Risk management</b>Spot those who may oppose or block you.</div>
+      <div class="card"><b>Informed decisions</b>Know who can support or hinder.</div>
+      <div class="card"><b>Conflict prevention</b>Manage conflicts early.</div>
+    </div>
+    <p>Overall: manage relationships, align outcomes with stakeholders' needs, <b>prioritise</b> the key ones to allocate resources well.</p>
+  </div></details>
+
+  <details class="sub" id="b4-matrix"><summary><span class="chev">›</span><span class="sum-t">Mendelow's power/interest matrix<small>The main tool, with the slide's labels</small></span><label class="got"><input type="checkbox" data-k="b4-matrix" data-sec="block4">Got it</label></summary>
+  <div class="body">
+    <p>Plots each stakeholder by <b>power</b> (influence) and <b>interest</b> to prioritise them. <a class="x" href="#q14">Q14</a></p>
+    <div class="grid2" role="table" aria-label="Mendelow's matrix">
+      <div></div><div class="ax">Low interest</div><div class="ax">High interest</div>
+      <div class="ax">High power</div>
+      <div class="cell"><b>Keep satisfied</b>Investors, government regulator.</div>
+      <div class="cell hot"><b>Key players</b>Manage closely. The CEO.</div>
+      <div class="ax">Low power</div>
+      <div class="cell"><b>Low priority</b>Monitor, minimal effort. Local community.</div>
+      <div class="cell"><b>Keep informed</b>Customers, end users.</div>
+    </div>
+    <p class="note">The slide's labels are “Key players” and “Low priority”; textbooks also say “manage closely” and “monitor”. Clara's stakeholder-matrix example doesn't follow the grid exactly (it puts the regulator on “manage closely”), so use the grid.</p>
+  </div></details>
+
+  <details class="sub" id="b4-tools"><summary><span class="chev">›</span><span class="sum-t">The other 9 tools<small>Know the name and one line each</small></span><label class="got"><input type="checkbox" data-k="b4-tools" data-sec="block4">Got it</label></summary>
+  <div class="body">
+    <div class="tbl"><table><thead><tr><th>Tool</th><th>What it does</th></tr></thead><tbody>
+      <tr><td>Stakeholder mapping</td><td>Visual map of relationships and who influences whom (e.g. a network by involvement and against/for)</td></tr>
+      <tr><td>Stakeholder matrix</td><td>Table: role, interest, influence, expectations, communication strategy</td></tr>
+      <tr><td>RACI matrix</td><td><b>R</b>esponsible (does the work) · <b>A</b>ccountable (decides, answers for it) · <b>C</b>onsulted (input) · <b>I</b>nformed (kept updated)</td></tr>
+      <tr><td>Engagement matrix</td><td>Current vs desired engagement: unaware → resistant → neutral → supportive → leading</td></tr>
+      <tr><td>SWOT for stakeholders</td><td>Strengths, weaknesses, opportunities, threats each stakeholder brings</td></tr>
+      <tr><td>PESTLE</td><td>Helps identify external stakeholders</td></tr>
+      <tr><td>Influence diagrams</td><td>Influence pathways and power dynamics</td></tr>
+      <tr><td>Salience model</td><td>Listed on the slide, not explained</td></tr>
+      <tr><td>Communication plan</td><td>Frequency, method and type of communication per stakeholder</td></tr>
+    </tbody></table></div>
+  </div></details>
+</section>
+
+<!-- BLOCK 5 -->
+<section class="top" id="block5" data-sec="block5">
+  <div class="top-head"><h2>Block 5 · STP, PLC, adoption</h2><span class="tag">C4, C5, C5n</span></div>
+  <p class="lead">Seven exam questions live here (11, 12, 13, 16, 17, 18, 21). Who we sell to, where the product is in its life, and who buys first.</p>
+
+  <details class="sub" id="b5-seg"><summary><span class="chev">›</span><span class="sum-t">Segmentation<small>4 B2C criteria with every variable, B2B, goal, trend</small></span><label class="got"><input type="checkbox" data-k="b5-seg" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <div class="def"><b>STP</b> = Segmentation (divide the market) → Targeting (choose segments) → Positioning (stand out vs competitors). <b>Segmentation</b> = dividing a broad market into smaller groups with shared characteristics. <a class="x" href="#q17">Q17</a></div>
+    <div class="tbl"><table><thead><tr><th>Criterion</th><th>Question</th><th>Variables (slide graphic)</th><th>Porsche</th></tr></thead><tbody>
+      <tr><td>Demographic</td><td>WHO?</td><td>Age, gender, income, education, social status, family, life stage, occupation</td><td>Men, 50+</td></tr>
+      <tr><td>Geographic</td><td>WHERE?</td><td>Country, city, density, language, climate, area, population</td><td>Urban</td></tr>
+      <tr><td>Psychographic</td><td>WHY?</td><td>Lifestyle, AIO (activities, interests, opinions), concerns, personality, values, attitudes</td><td>Why they buy us</td></tr>
+      <tr><td>Behavioural</td><td>HOW?</td><td>Benefits sought, purchase, usage, intent, occasion, buyer stage, user status, life-cycle stage, engagement, loyalty</td><td>Online or at a dealer</td></tr>
+    </tbody></table></div>
+    <p><a class="x" href="#q11">Q11</a> <b>B2B is different</b> <a class="x" href="#q12">Q12</a>: segment companies by industry, size, location, revenue, technology, buying process, order size. <b>Latest trend</b> <a class="x" href="#q18">Q18</a>: AI to personalise and reach very specific segments.</p>
+    <p><b>Class example, a new vitamin beer</b>: health-conscious adults (25–45), busy parents (30–50), young adults and students (18–25), elderly (55+), fitness enthusiasts (20–40), children's market (5–12, parents buy). Each described by all 4 criteria.</p>
+  </div></details>
+
+  <details class="sub" id="b5-target"><summary><span class="chev">›</span><span class="sum-t">Targeting<small>Choosing segments; niche</small></span><label class="got"><input type="checkbox" data-k="b5-target" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <p><b>Targeting</b> = choosing which segment(s) to pursue, by <b>size, profitability and fit with your strengths</b>.</p>
+    <div class="tbl"><table><thead><tr><th>Strategy</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Undifferentiated</td><td>One offer for the whole market (mass)</td><td>Old-style Coca-Cola</td></tr>
+      <tr><td>Differentiated</td><td>A different offer per segment, several segments</td><td>MINI Cooper S vs Countryman</td></tr>
+      <tr><td>Concentrated / niche <a class="x" href="#q16">Q16</a></td><td>All-in on <b>one</b> small, specific segment bigger players ignore</td><td>Ferrari</td></tr>
+      <tr><td>Micromarketing</td><td>Local or individual level; where AI personalisation leads</td><td>Netflix recommendations</td></tr>
+    </tbody></table></div>
+    <p class="note">These four strategy names are standard textbook terms; Clara's slides only cover targeting in general.</p>
+  </div></details>
+
+  <details class="sub" id="b5-pos"><summary><span class="chev">›</span><span class="sum-t">Positioning<small>Positioning vs image, maps, 7 strategies, MINI</small></span><label class="got"><input type="checkbox" data-k="b5-pos" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <div class="cards">
+      <div class="card"><b>Positioning</b>How we <i>want</i> to be seen. Always vs competition.</div>
+      <div class="card"><b>Brand image</b>How people <i>actually</i> see us.</div>
+    </div>
+    <p><b>How to position</b>: list your attributes (healthy, premium price, good taste…) → keep the ones where you beat competitors → use them in the campaign.</p>
+    <p><b>Positioning (perceptual) map</b>: a 2-axis grid of attributes that matter to consumers (price × quality, luxury × affordability) with brands plotted on it, to see where you stand and find gaps or repositioning chances. Slide example: price × performance with MINI, Porsche, BMW, Mazda, Hyundai, Toyota, Ford, Lincoln.</p>
+    <h4>The 7 positioning strategies</h4>
+    <div class="tbl"><table><thead><tr><th>Based on</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Product characteristics or benefits</td><td>Toothpaste: freshness + cavity fighter</td></tr>
+      <tr><td>Price-quality</td><td>Cheap jeans seen as low quality</td></tr>
+      <tr><td>Use or application</td><td>Nescafé cold coffee for summer</td></tr>
+      <tr><td>Users / product process</td><td>Designer jeans; J&amp;J baby shampoo repositioned for frequent washers</td></tr>
+      <tr><td>Product class</td><td>Instant breakfast as a breakfast or diet-meal substitute</td></tr>
+      <tr><td>Cultural symbols</td><td>Air India's maharaja</td></tr>
+      <tr><td>Competitor</td><td>Colgate shifts to kids after Pepsodent</td></tr>
+    </tbody></table></div>
+    <p><b>MINI STP</b>: segments by demographics (young to upper-middle-aged), psychographics (individuality, style, quality), geography (urban), behaviour (usage rate, brand loyalty, benefits sought, occasion: first or second car). Target: stylish, compact, premium city car buyers. Position: fun to drive, customisable, community-driven.</p>
+  </div></details>
+
+  <details class="sub" id="b5-plc"><summary><span class="chev">›</span><span class="sum-t">Product life cycle<small>Stages, sales vs profit, strategies per stage</small></span><label class="got"><input type="checkbox" data-k="b5-plc" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <p>The PLC plots a product's progress through its life; usable for one product, a category or an industry. <a class="x" href="#q13">Q13</a></p>
+    <figure class="fig"><svg viewBox="0 0 640 250" role="img" aria-label="Sales peak in maturity; profits are negative in development and introduction, peak around late growth and early maturity">
+      <line x1="40" y1="170" x2="625" y2="170" stroke="var(--muted)" stroke-width="1.2"/>
+      <line x1="40" y1="20" x2="40" y2="225" stroke="var(--muted)" stroke-width="1.2"/>
+      <g stroke="var(--line)" stroke-dasharray="4 4"><line x1="130" y1="20" x2="130" y2="215"/><line x1="240" y1="20" x2="240" y2="215"/><line x1="370" y1="20" x2="370" y2="215"/><line x1="520" y1="20" x2="520" y2="215"/></g>
+      <path d="M130 168 C 180 166, 215 150, 250 115 S 330 40, 410 34 S 480 50, 520 80 S 590 140, 620 150" fill="none" stroke="var(--accent)" stroke-width="3"/>
+      <path d="M40 170 C 70 186, 110 205, 140 200 S 210 175, 245 150 S 320 112, 370 116 S 470 140, 520 160 S 590 172, 620 174" fill="none" stroke="var(--exam)" stroke-width="3"/>
+      <text x="420" y="28" fill="var(--accent-ink)" font-weight="700" font-size="14">Sales</text>
+      <text x="300" y="108" fill="var(--exam)" font-weight="700" font-size="14">Profits</text>
+      <text x="48" y="212" fill="var(--muted)" font-size="12">Losses</text>
+      <g fill="var(--ink)" font-size="13" text-anchor="middle"><text x="85" y="242">Development</text><text x="185" y="242">Introduction</text><text x="305" y="242">Growth</text><text x="445" y="242">Maturity</text><text x="572" y="242">Decline</text></g>
+    </svg><figcaption>Sales peak in maturity. Profits are negative in development and introduction and peak around late growth to early maturity (from Clara's chart).</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th>Stage</th><th>What happens</th><th>Cars</th><th>Strategies</th></tr></thead><tbody>
+      <tr><td>Introduction</td><td>Low, slow sales; high costs; little or no profit</td><td>Self-driving</td><td>Skimming or penetration (below); clear brand identity; partners; samples and trials; be selective to boost demand</td></tr>
+      <tr><td>Growth</td><td>Sales, profits and share rise fast (“takeoff”)</td><td>Electric</td><td>Improve quality, add features, new segments, more channels, keep prices high, shift message from <b>awareness to preference</b></td></tr>
+      <tr><td>Maturity</td><td>Sales peak and level off; saturation</td><td>Old models</td><td><b>Market modification</b> (new segments, win rivals' customers, convert non-users) or <b>product modification</b> (features, quality, price, differentiation); extend life with <b>new users or new usages</b></td></tr>
+      <tr><td>Decline</td><td>Sales and profits fall (tastes, technology, alternatives)</td><td>Diesel</td><td>Cut promotion, fewer outlets, price cuts, new use, wait for rivals to exit, <b>harvest</b>; or discontinue, sell the brand, clear stock</td></tr>
+    </tbody></table></div>
+    <h4>The 4 introduction strategies</h4>
+    <div class="grid2" role="table" aria-label="Introduction strategies">
+      <div></div><div class="ax">High promotion</div><div class="ax">Low promotion</div>
+      <div class="ax">High price</div>
+      <div class="cell"><b>Rapid skimming</b>Win share fast against competition.</div>
+      <div class="cell"><b>Slow skimming</b>When no serious competition is expected. Cheaper.</div>
+      <div class="ax">Low price</div>
+      <div class="cell"><b>Rapid penetration</b>Win a large market fast.</div>
+      <div class="cell"><b>Slow penetration</b>Low price, minimal promotion.</div>
+    </div>
+    <p><b>Market cycle</b> version: 1 market development (no proven demand yet, slow sales) → 2 market growth (“takeoff”) → 3 market maturity (grows only at replacement and new-family rate) → 4 market decline.</p>
+  </div></details>
+
+  <details class="sub" id="b5-bcg"><summary><span class="chev">›</span><span class="sum-t">BCG matrix and the PLC<small>Stars, cows, dogs, question marks</small></span><label class="got"><input type="checkbox" data-k="b5-bcg" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <p><b>BCG growth-share matrix</b>: Bruce Henderson, Boston Consulting Group, early 1970s. Plots products by <b>relative market share</b> × <b>market growth rate</b> for investment decisions.</p>
+    <div class="grid2" role="table" aria-label="BCG matrix">
+      <div></div><div class="ax">Low market growth</div><div class="ax">High market growth</div>
+      <div class="ax">High share</div>
+      <div class="cell hot"><b>Cash cow</b>Funds the portfolio. Normal bikes.</div>
+      <div class="cell"><b>Star</b>Invest to keep leading. Electric bikes.</div>
+      <div class="ax">Low share</div>
+      <div class="cell"><b>Dog</b>Divest or eliminate. Tandems.</div>
+      <div class="cell"><b>Question mark</b>Invest or drop. Hydrogen and solar bikes.</div>
+    </div>
+    <div class="tbl"><table><thead><tr><th>PLC stage</th><th>BCG</th><th>Strategy (slide)</th></tr></thead><tbody>
+      <tr><td>Introduction</td><td>Question mark</td><td>Invest</td></tr>
+      <tr><td>Growth</td><td>Star</td><td>Hold</td></tr>
+      <tr><td>Maturity</td><td>Cash cow</td><td>Harvest</td></tr>
+      <tr><td>Decline</td><td>Dog</td><td>Divest / eliminate, or relaunch, reposition, find a new use</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="sub" id="b5-adopt"><summary><span class="chev">›</span><span class="sum-t">Innovation curve and the chasm<small>Who adopts, in what order, and how to market to each</small></span><label class="got"><input type="checkbox" data-k="b5-adopt" data-sec="block5">Got it</label></summary>
+  <div class="body">
+    <figure class="fig"><svg viewBox="0 0 640 220" role="img" aria-label="Adoption bell curve: innovators 2.5%, early adopters 13.5%, chasm, early majority 34%, late majority 34%, laggards 16%">
+      <defs><clipPath id="bell"><path d="M20 180 C 120 180, 170 170, 220 120 S 290 30, 330 30 S 410 60, 450 115 S 540 180, 625 180 Z"/></clipPath></defs>
+      <g clip-path="url(#bell)">
+        <rect x="20" y="0" width="140" height="180" fill="var(--accent)" opacity=".9"/>
+        <rect x="160" y="0" width="100" height="180" fill="var(--accent)" opacity=".6"/>
+        <rect x="260" y="0" width="140" height="180" fill="var(--exam)" opacity=".55"/>
+        <rect x="400" y="0" width="120" height="180" fill="var(--exam)" opacity=".35"/>
+        <rect x="520" y="0" width="105" height="180" fill="var(--muted)" opacity=".35"/>
+      </g>
+      <line x1="262" y1="10" x2="262" y2="185" stroke="var(--trap)" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="268" y="20" fill="var(--trap)" font-size="12" font-weight="700">The chasm</text>
+      <line x1="20" y1="180" x2="625" y2="180" stroke="var(--muted)"/>
+      <g fill="var(--ink)" font-size="12.5" text-anchor="middle" font-weight="700"><text x="95" y="199">Innovators</text><text x="210" y="199">Early adopters</text><text x="330" y="199">Early majority</text><text x="460" y="199">Late majority</text><text x="572" y="199">Laggards</text></g>
+      <g fill="var(--muted)" font-size="12" text-anchor="middle"><text x="95" y="215">2.5%</text><text x="210" y="215">13.5%</text><text x="330" y="215">34%</text><text x="460" y="215">34%</text><text x="572" y="215">16%</text></g>
+    </svg><figcaption>The curve on Clara's slide. Early market on the left of the chasm, mainstream market on the right.</figcaption></figure>
+    <div class="tbl"><table><thead><tr><th>Group</th><th>Also called</th><th>Profile</th><th>How to market to them</th></tr></thead><tbody>
+      <tr><td>Innovators</td><td>Tech enthusiasts</td><td>First; risk-takers; wealthier; close to the science; accept that products may fail</td><td>Find them during development; early user trials</td></tr>
+      <tr><td>Early adopters <a class="x" href="#q21">Q21</a></td><td>Visionaries</td><td>Most influential opinion leaders; social media, reviews; high status, education, finances; more reasoned; seek more information</td><td>Behind-the-scenes insights so they spread the word</td></tr>
+      <tr><td>Early majority</td><td>Pragmatists</td><td>Mass appeal begins; risk-averse; follow thought leaders</td><td>General marketing + word of mouth</td></tr>
+      <tr><td>Late majority</td><td>Conservatives</td><td>Sceptical; tried and tested only; less money and status</td><td>Special offers and promotions</td></tr>
+      <tr><td>Laggards</td><td>Sceptics</td><td>Last; traditional; change-averse. Their arrival signals decline</td><td>Not worth direct marketing; price and general awareness</td></tr>
+    </tbody></table></div>
+    <p><b>The chasm</b> (Geoffrey Moore, <i>Crossing the Chasm</i>): after selling to early adopters, sales plateau before the mass market. Crossing from early adopters to the early majority is the hardest step. Clara overlays it on a hype curve: peak of inflated expectations → trough of disillusionment (the chasm) → slope of enlightenment → plateau of productivity.</p>
+    <p><span class="trap-tag">Exception</span> These are planning categories, not stereotypes: there are rich, educated laggards and tech-savvy older people.</p>
+    <p class="note">Discussion examples on the slides: iPod, blockchain, Bitcoin, NFTs, crypto, vegan food.</p>
+  </div></details>
+</section>
+
+<!-- TRAPS -->
+<section class="top" id="traps" data-sec="traps">
+  <div class="top-head"><h2>Trap pairs</h2><span class="tag">Re-read Tuesday morning</span></div>
+  <p class="lead">The pairs that look alike. Each has a quick test you can run in your head during the exam.</p>
+
+  <details class="sub" id="t-u1"><summary><span class="chev">›</span><span class="sum-t">Unit 1 traps</span><label class="got"><input type="checkbox" data-k="t-u1" data-sec="traps">Got it</label></summary>
+  <div class="body"><div class="tbl"><table><thead><tr><th>Looks alike</th><th>Quick test</th></tr></thead><tbody>
+    <tr><td>Goal vs objective</td><td>Number + deadline → objective</td></tr>
+    <tr><td>Strategy vs tactic</td><td>Could you do it Monday morning? → tactic</td></tr>
+    <tr><td>Value proposition vs tactic</td><td>A promise to the customer, or something the company does?</td></tr>
+    <tr><td>Customer vs consumer</td><td>Who pays vs who uses it</td></tr>
+    <tr><td>Fact vs insight</td><td>A % in it → fact, even if it describes an opinion</td></tr>
+    <tr><td>Stated vs real need</td><td>“Cheap car” vs “cheap to run”</td></tr>
+    <tr><td>Real vs unstated need</td><td>Did they say anything about it at all?</td></tr>
+    <tr><td>Latent vs nonexistent demand</td><td>Is the product missing, or the interest missing?</td></tr>
+    <tr><td>Top of mind vs spontaneous</td><td>First on the list, or anywhere on it?</td></tr>
+    <tr><td>Awareness / penetration / share</td><td>Know it / use it / your % of sales</td></tr>
+    <tr><td>Percent vs percentage points</td><td>25.9% → 27.1% = +1.2 points (about +4.6% relative)</td></tr>
+    <tr><td>Paid vs earned</td><td>Did the brand pay? → paid, even on someone else's account</td></tr>
+    <tr><td>Volume vs value share</td><td>Value share > volume share → premium pricing</td></tr>
+    <tr><td>Direct vs indirect competitor</td><td>Same product, or just the same need?</td></tr>
+    <tr><td>Performance (holistic) vs CSR</td><td>Measuring outcomes vs doing good</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="sub" id="t-b2"><summary><span class="chev">›</span><span class="sum-t">Block 2 traps</span><label class="got"><input type="checkbox" data-k="t-b2" data-sec="traps">Got it</label></summary>
+  <div class="body"><div class="tbl"><table><thead><tr><th>Looks alike</th><th>Quick test</th></tr></thead><tbody>
+    <tr><td>Political vs legal</td><td>What the government decides (tax, stability) vs the actual laws (GDPR, IP)</td></tr>
+    <tr><td>Social vs environmental</td><td>People's trends vs nature and climate</td></tr>
+    <tr><td>Strength vs opportunity</td><td>Inside the company vs outside in the market</td></tr>
+    <tr><td>Weakness vs threat</td><td>Inside (complex assembly) vs outside (competitors, recession)</td></tr>
+    <tr><td>Substitute vs new entrant</td><td>Different product vs new company selling the same thing</td></tr>
+    <tr><td>Substitute vs rivalry</td><td>Different product vs same product from existing players</td></tr>
+    <tr><td>Low barriers to entry</td><td>= HIGH threat of new entrants</td></tr>
+    <tr><td>Competitor analysis vs benchmarking</td><td>Understanding rivals vs measuring your KPIs against the best</td></tr>
+    <tr><td>Competitive vs functional benchmarking</td><td>Vs your rivals vs any industry doing the same function</td></tr>
+    <tr><td>PESTEL vs Porter</td><td>Macro (whole world) vs micro (your industry)</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="sub" id="t-b3"><summary><span class="chev">›</span><span class="sum-t">Blocks 3–5 traps</span><label class="got"><input type="checkbox" data-k="t-b3" data-sec="traps">Got it</label></summary>
+  <div class="body"><div class="tbl"><table><thead><tr><th>Looks alike</th><th>Quick test</th></tr></thead><tbody>
+    <tr><td>Mix vs PESTEL</td><td>What you control vs what you can't</td></tr>
+    <tr><td>Penetration vs skimming</td><td>Start low vs start high. Rapid/slow = how much promotion</td></tr>
+    <tr><td>Sales promotion vs Promotion</td><td>One tool (discounts, coupons) inside the Promotion P</td></tr>
+    <tr><td>Physical evidence vs product</td><td>Clues to judge a service before buying vs the thing itself</td></tr>
+    <tr><td>SMART goal vs strategy</td><td>What, with a number and deadline vs the broad how</td></tr>
+    <tr><td>Keep satisfied vs keep informed</td><td>High power, low interest vs low power, high interest</td></tr>
+    <tr><td>Responsible vs accountable</td><td>Does the work vs decides and answers for it</td></tr>
+    <tr><td>Supplier as stakeholder vs supplier power</td><td>How they help you vs how they squeeze your profit</td></tr>
+    <tr><td>Psychographic vs behavioural</td><td>WHY (values, lifestyle) vs HOW (usage, loyalty, channel)</td></tr>
+    <tr><td>Segmentation vs targeting</td><td>Dividing the market vs choosing segments</td></tr>
+    <tr><td>Positioning vs brand image</td><td>How you want to be seen vs how you are seen</td></tr>
+    <tr><td>Niche vs differentiated</td><td>One small segment vs several, each with its own offer</td></tr>
+    <tr><td>Innovators vs early adopters</td><td>First and riskiest vs second and most influential</td></tr>
+    <tr><td>Where sales peak</td><td>Maturity. Growth is where they rise fastest</td></tr>
+    <tr><td>Market vs product modification</td><td>Change who buys vs change the product</td></tr>
+    <tr><td>PLC vs innovation curve</td><td>The product's stages vs the people who adopt, in order</td></tr>
+    <tr><td>Cash cow vs star</td><td>Both high share; cow = slow-growing market, star = fast</td></tr>
+  </tbody></table></div></div></details>
+</section>
+
+<!-- COVERAGE -->
+<section class="top" id="coverage">
+  <div class="top-head"><h2>What the slides don't cover</h2><span class="tag">Audit of all 10 files</span></div>
+  <p class="lead">Every page of every file was checked, including the image-only slides. All the images were readable, and the ones with real content are now written out on this page.</p>
+  <div class="body" style="padding-left:0">
+    <h4>From images, now on this page</h4>
+    <p>Maslow's pyramid · the full PESTEL example list · Kotler's 4P components · the 7P wheel · the segmentation variables · Mendelow's labels (key players, low priority) · the sales-vs-profit PLC chart · the PLC-to-BCG mapping and the bikes answers · the adoption percentages, alternative names and the hype curve.</p>
+    <h4>Answers that come from the textbook, not Clara's slides</h4>
+    <ul><li>Q12 (B2B segmentation criteria) and Q16 (niche targeting).</li><li>The four targeting strategy names (undifferentiated, differentiated, concentrated, micromarketing).</li></ul>
+    <h4>Things that couldn't be checked</h4>
+    <ul>
+      <li>Case-study links and videos (L'Oréal × YouTube, Coca-Cola, Starbucks, the McDonald's SWOT article, the AdRoll remarketing case). Only the slide summaries are here.</li>
+      <li>Exercises with no model answer on the slides: Nespresso STP, the IKEA marketing-plan exercise, the storecheck presentation.</li>
+      <li>The exam format (theory questions or a case).</li>
+    </ul>
+    <h4>Hidden slides</h4>
+    <p>48 slides in the C2n deck are hidden, so probably not shown in class. Only Porter's detailed drivers made it onto this page (marked “Hidden slide”). The others are a social-media user ladder, marketing information systems, a supply-chain illustration and textbook screenshots.</p>
+  </div>
+  <p class="foot">Built from Clara Lasala's Marketing &amp; UX materials (C1, C2n, C3, C4, C5, C5n, IKEA SWOT, TOWS, marketing mix exercise, topics list). Ticks are stored only in this browser.</p>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  var KEY='mux-midterm-v1', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+  var boxes=[].slice.call(document.querySelectorAll('input[data-k]'));
+  boxes.forEach(function(b){
+    b.checked=!!state[b.dataset.k];
+    b.addEventListener('change',function(){ state[b.dataset.k]=b.checked; save(); update(); });
+    var lab=b.closest('label.got');
+    if(lab){ lab.addEventListener('click',function(e){ e.stopPropagation(); }); }
+  });
+  function update(){
+    var known=boxes.filter(function(b){return b.dataset.sec!=='plan';});
+    var done=known.filter(function(b){return b.checked;}).length;
+    document.getElementById('meterFill').style.width=(known.length?done/known.length*100:0)+'%';
+    document.getElementById('meterNum').textContent=done+' / '+known.length+' known';
+    document.querySelectorAll('[data-cnt]').forEach(function(el){
+      var sec=el.dataset.cnt, list=boxes.filter(function(b){return b.dataset.sec===sec;});
+      var d=list.filter(function(b){return b.checked;}).length;
+      el.textContent=list.length?d+'/'+list.length:'';
+      el.classList.toggle('done',list.length>0&&d===list.length);
+    });
+  }
+  update();
+
+  function openTo(id){
+    var el=document.getElementById(id); if(!el) return null;
+    var n=el; while(n){ if(n.tagName==='DETAILS') n.open=true; n=n.parentElement; }
+    return el;
+  }
+  var rail=document.getElementById('rail'), tocBtn=document.getElementById('tocBtn');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href').slice(1); if(!id) return;
+    openTo(id);
+    if(rail.classList.contains('open')){ rail.classList.remove('open'); tocBtn.setAttribute('aria-expanded','false'); }
+  });
+  tocBtn.addEventListener('click',function(){ var o=rail.classList.toggle('open'); tocBtn.setAttribute('aria-expanded',o?'true':'false'); });
+  window.addEventListener('hashchange',function(){ openTo(location.hash.slice(1)); });
+  if(location.hash){ var el=openTo(location.hash.slice(1)); if(el) setTimeout(function(){ el.scrollIntoView(); },50); }
+
+  document.getElementById('openAll').addEventListener('click',function(){ document.querySelectorAll('details').forEach(function(d){ d.open=true; }); });
+  document.getElementById('closeAll').addEventListener('click',function(){ document.querySelectorAll('details').forEach(function(d){ d.open=false; }); });
+
+  var links={}; document.querySelectorAll('.toc > li > a').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ Object.keys(links).forEach(function(k){ links[k].classList.toggle('on',k===en.target.id); }); } });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('section.top').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
